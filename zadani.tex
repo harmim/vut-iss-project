@@ -1,0 +1,212 @@
+% ISS PROJECT - 2017
+% 
+% Mon Nov 14 11:45:14 CET 2016
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage{vmargin} % for the intelligent margin definition
+\setpapersize{A4}
+\setmarginsrb{10 mm}{10 mm}{10 mm}{10 mm}{0 mm}{0 mm}{0 mm}{0 mm}
+\usepackage[latin2]{inputenc}
+\usepackage{moreverb}
+\usepackage{epsfig}
+\usepackage{url}
+\usepackage{amsmath}
+% ------- defs -----------------
+\def\bi{\begin{itemize}%\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}
+}
+\def\ei{\end{itemize}}
+\def\be{\begin{enumerate}%\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}
+}
+\def\ee{\end{enumerate}}
+\def\bic{\begin{itemize}\setlength{\itemsep}{-1mm}}
+\newcommand{\D}{\displaystyle}
+\newcommand{\Dfrac}[2]{\displaystyle\frac{\displaystyle #1}{\displaystyle #2}}
+\def\ejo{e^{j\omega}}
+\def\mejo{e^{-j\omega}}
+\def\zm1{z^{-1}}
+\newcommand{\RA}{$\Rightarrow$} 
+\pagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\noindent
+\vspace{5mm}
+\begin{center}{\Large\bf ISS Projekt 2017 / 18  }\\
+  Honza Èernocký, ÚPGM FIT VUT\\
+\today
+\end{center}
+
+\section{Cíl }
+Cílem projektu je provést analýzu signálu. Jako vstup pou¾ijte dodaný
+zvukový soubor
+\verb#xlogin00.wav#, kde ``xlogin00'' je Vá¹ login. Projekt je mo¾no
+øe¹it v Matlabu, jazyce C nebo v libovolném jiném programovacím nebo
+skriptovacím jazyce. Je mo¾né pou¾ít libovolné knihovny. 
+Projekt se nezamìøuje na ``krásu programování'',
+není tedy nutné mít v¹e úhlednì zabalené do okomentovaných funkcí,
+atd. -- napø. soubor v Matlabu, ze kterého copy-pastujete  pøíkazy do
+pøíkazové øádky, naprosto staèí. Dùle¾itý je výsledek. 
+
+\section{Odevzdání projektu} 
+bude probíhat do informaèního systému WIS ve  dvou  souborech: 
+\be
+\item \verb#xlogin00.pdf# (kde ``xlogin00'' je Vá¹ login) je protokol
+  s  øe¹ením. 
+\bi 
+\item V  záhlaví   prosím uveïte své jméno, pøíjmení a login. 
+\item Pak budou  následovat odpovìdi na jednotlivé otázky --- 
+  obrázky, numerické hodnoty,  komentáøe. 
+\item U ka¾dé otázky uveïte struèný postup - mù¾e se jednat o kousek
+  okomentovaného kódu, komentovanou rovnici nebo text. Není nutné
+  kopírovat do protokolu celý zdrojový kód.   Není nutné opisovat zadání
+ èi teorii, soustøeïte se pøímo na øe¹ení. 
+\item Pokud  vyu¾ijete zdroje
+ mimo standardních materiálù (pøedná¹ky, cvièení a  studijní etapa
+ projektu ISS), prosím uveïte, odkud jste èerpali. 
+\item Protokol je mo¾né psát v libovolném
+ systému (MS-Word, Libre Office, Latex), mù¾ete jej psát dokonce i
+ èitelnì rukou, dolepit do nìj obrázky a pak oskenovat. Protokol mù¾e
+ být èesky, slovensky  nebo anglicky. 
+\item Doporuèená
+ délka protokolu je max. 2 strany, pøípadnì 3, pokud se rozhodnete
+ øe¹it bonusový úkol. 
+\ei 
+\item soubor s  Va¹imi   zdrojovými kódy. 
+\bi 
+\item Mù¾e se jednat o jeden
+  soubor (napø. \verb#moje_reseni.m#) nebo o ZIP archiv, pokud budete
+  mít souborù více. Do tohoto souboru není tøeba  pøikládat
+  vygenerované  obrázky, ty uvidíme v protokolu. 
+\item  Projekt je {\bf samostatná
+  práce}, proto budou Va¹e zdrojové kódy  køí¾ovì korelovány a v
+  pøípadì silné podobnosti budou vyvozeny pøíslu¹né závìry. 
+\item Silná korelace s kódy ze studijní etapy je v poøádku, nemusíte
+  tedy mìnit názvy promìnných, pøipisovat zbyteèné komentáøe, atd. 
+\ei 
+\ee 
+
+% ----------------------
+\section{Zadání }
+\be 
+\item {\bf [0.5 bodu]} Naètìte Vá¹ osobní signál ze souboru \verb#xlogin00.wav#, kde ``xlogin00''
+  je Vá¹ login. Napi¹te vzorkovací frekvenci signálu a jeho délku ve
+  vzorcích a v sekundách. 
+
+\item  {\bf [0.5 bodu]} Vypoèítejte spektrum signálu pomocí diskrétní Fourierovy
+  transformace. Do protokolu vlo¾te obrázek modulu spektra v
+  závislosti na frekvenci. Frekvenèní osa musí být v Hz a pouze od 0
+  do poloviny vzorkovací frekvence. 
+
+\item {\bf [1 bod]}  Urèete a napi¹te, na které frekvenci v   Hz   je maximum modulu spektra. 
+
+\item {\bf [0.5 bodu]}  Pro dal¹í zpracování je dán IIR filtr s následujícími
+  koeficienty: \\
+$b_0 = 0.2324, ~~~b_1 =   -0.4112, ~~~b_2 =    0.2324, ~~~~a_1 =
+  0.2289, ~~~~a_2 = 0.4662$\\
+
+Do protokolu vlo¾te obrázek s nulami a póly pøenosové funkce
+tohoto filtru a uveïte, zda je filtr stabilní. 
+
+\newpage 
+
+\item {\bf [0.5 bodu]}  Do protokolu vlo¾te obrázek s modulem kmitoètové charakteristiky
+  tohoto filtru (frekvenèní osa musí být v Hz a pouze od 0
+  do poloviny vzorkovací frekvence) a uveïte, jakého je filtr typu
+  (dolní propus» / horní propus» / pásmová propus» / pásmová zádr¾). 
+
+\item {\bf [0.5 bodu]}  Filtrujte naètený signál tímto filtrem. Z výsledného  signálu
+  vypoèítejte spektrum signálu pomocí diskrétní Fourierovy 
+  transformace. Do protokolu vlo¾te obrázek modulu spektra v
+  závislosti na frekvenci. Frekvenèní osa musí být v Hz a pouze od 0
+  do poloviny vzorkovací frekvence. 
+
+\item {\bf [0.5 bodu]}  Urèete a napi¹te, na které frekvenci v   Hz   je maximum modulu
+  spektra filtrovaného signálu.  
+
+\item {\bf [1 bod]}  {\bf V tomto a dal¹ím cvièeních budete pracovat s pùvodním signálem, ne s
+  filtrovaným. }
+
+Do signálu bylo pøimícháno  20~ms obdélníkových impulsù se støední hodnotou
+nula a støídou 50\% na frekvenci 4~kHz. Tedy 80 sekvencí
+$[h~~h~~{-h}~~{-h}]$ (kde $h$ je kladné èíslo) za sebou.
+
+Najdìte, kde jsou -- napi¹te èas ve vzorcích a v  sekundách. 
+
+Pomùcka: pokud netu¹íte, jak na to, uva¾te napø. pøizpùsobený  filtr,
+výrobu spektra této sekvence a jeho  hledání ve spektru signálu
+rozdìleného po 20ti ms, poslech, atd. Cílem není matematická èistota,
+ale vyøe¹ení úkolu. 
+
+\item {\bf [0.5 bodu]}  Spoèítejte a do protokolu vlo¾te obrázek autokorelaèních
+  koeficientù $R[k]$ pro $k \in -50\ldots 50$. Pou¾ijte vychýlený
+  odhad koeficientù podle vztahu 
+$$R[k] = \frac{1}{N} \sum_n x[n] x[n+k].$$ 
+
+\item\label{r10} {\bf [0.5 bodu]} Napi¹te hodnotu koeficientu $R[10]$. 
+
+\item {\bf [2 body]}  Proveïte èasový odhad sdru¾ené funkce hustoty rozdìlení
+  pravdìpodobnosti $p(x_1, x_2, 10)$ mezi vzorky $n$ a $n+10$. Do
+  protokolu vlo¾te 
+  3-D obrázek tìchto hodnot. Mù¾ete pou¾ít barevnou mapu, odstíny
+  ¹edi, projekci 3D do 2D, jak chcete. Chcete-li, mù¾ete pro toto a
+  následující dvì cvièení vyu¾ít
+  nebo vykuchat dodanou funkci \verb#hist2opt.m#. Funkce ov¹em øe¹í
+  souborový odhad, pro zadaný èasový odhad ji musíte modifikovat nebo
+  ¹ikovnì zavolat. 
+
+\item {\bf [2 body]}  Ovìøte, ¾e se jedná o správnou sdru¾enou  funkci hustoty rozdìlení
+  pravdìpodobnosti, tedy ¾e 
+$$\int_{x_1} \int_{x_2} p(x_1, x_2, 10) dx_1 dx_2 = 1$$
+
+\item {\bf [2 body]}  Vypoètìte z této odhadnuté funkce hustoty rozdìlení
+  pravdìpodobnosti autokorelaèní koeficient $R[10]$: 
+$$R[10] = \int_{x_1} \int_{x_2} x_1 x_2  p(x_1, x_2, 10) dx_1 dx_2 $$
+Srovnejte  s hodnotou vypoèítanou v pøíkladu~\ref{r10} a komentujte
+výsledek. 
+
+~
+
+~
+
+\hrule 
+\ee
+
+\noindent {\bf Bonusový úkol - nepovinný, není hodnocen body, ale
+  nejzajímavìj¹í øe¹ení   vyhraje láhev dobrého francouzského èerveného vína. }\\
+~\\
+Navrhnìte  prediktor (pøedpovídaè), který doká¾e odhadnout 
+hodnotu vzorku $x[n]$ z hodnot pìti pøedcházejících vzorkù pomocí
+jednoduchého FIR filtru: 
+$$\hat{x}[n] = b_1 x[n-1] + b_2 x[n-2] + b_3 x[n-3] + b_4 x[n-4] + b_5
+x[n-5],$$
+kde $\hat{x}[n]$ je odhadnutý vzorek. 
+
+~\\
+
+Jako metriku pro urèení kvality prediktoru pou¾ijte energii chyby
+predikce. Chyba predikce  je definována jako rozdíl  skuteèných a pøedpovìzených
+vzorkù: 
+$$e[n] = x[n] - \hat{x}[n],$$
+a její energie je dána zcela tradiènì jako 
+$$E = \sum e^2[n]. $$
+
+~\\
+
+Urèete nejlep¹í mo¾ný prediktor pro Vá¹ signál (pùvodní, ne ten 
+  filtrovaný). Prediktor je plnì dán  hodnotami koeficientù $b_1
+  \ldots b_5$. Vyhodno»te také kvalitu prediktoru pomocí  energie chyby
+  predikce $E$ a srovnejte Vá¹  prediktor  s
+  nìkolika ``blbými'', napø. 
+\bi
+\item prediktor generující pouze nuly: $\hat{x}[n] = 0$
+\item prediktor opakující minulý vzorek $\hat{x}[n] = x[n-1]$
+\item prediktor prùmìrující dva  minulé  vzorky  $\hat{x}[n] =
+  0.5x[n-1] + 0.5x[n-2]$. 
+\ei 
+
+~\\
+
+Dùle¾itý je opìt pouze výsledek, tak¾e mù¾ete odvozovat, vyhledat a pou¾ít
+hotové  odvozené øe¹ení, pou¾ít libovolnou techniku strojového uèení,
+zkusit urèit koeficienty ruènì, atd. 
+
+\end{document}
